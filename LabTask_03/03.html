@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Assignment Lab Task 02</title>
+</head>
+<body>
+
+    <form id="genderForm" onsubmit="return validateGender()">
+        <table align="center" border="0">
+            <tr>
+                <td width="300">
+                    <fieldset>
+                        <legend>Gender</legend>
+                        <input type="radio" name="gender" value="Male"> Male
+                        <input type="radio" name="gender" value="Female"> Female
+                        <input type="radio" name="gender" value="Other"> Other
+                    </fieldset>
+                    <p id="genderError"></p> 
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+
+    <script src="03_script.js"></script>
+
+</body>
+</html>
