@@ -21,11 +21,13 @@ This repository contains mid-term lab tasks covering the following topics:
 - **Form Validation**: Form validation using JavaScript 
 
 ## 👩‍🎓 Student Information
-
+- Naznin Akter Roshmny
+- ID: 22-46092-1
 - Course: Web Technologies [B]
 - Course Faculty: Md Al-Amin
 - Semester: Fall 25-26  
 - Department: Computer Science & Engineering [CSE]
+- American International University Bangladesh
 
 ## ✅ Instructions
 
