@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+        }
+
+        .container {
+            width: 400px;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 7px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .gender input {
+            width: auto;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: darkgreen;
+        }
+    </style>
+
+<script>
+function validateAll() {
+    let valid = true;
+
+    if (!validateName()) valid = false;
+    if (!validateEmail()) valid = false;
+    if (!validateGender()) valid = false;
+    if (!validateDOB()) valid = false;
+    if (!validateBlood()) valid = false;
+    if (!validateDegree()) valid = false;
+    if (!validatePhoto()) valid = false;
+
+    if (valid) {
+        alert("Form submitted successfully!");
+    }
+
+    return valid;
+}
+
+// Name
+function validateName() {
+    const name = document.getElementById("name").value.trim();
+    const msg = document.getElementById("nameError");
+
+    if (name === "") {
+        msg.textContent = "Name cannot be empty!";
+        return false;
+    }
+
+    const words = name.split(" ").filter(w => w.length > 0);
+    if (words.length < 2) {
+        msg.textContent = "Name must contain at least two words!";
+        return false;
+    }
+
+    const pattern = /^[A-Za-z][A-Za-z.\- ]*$/;
+    if (!pattern.test(name)) {
+        msg.textContent = "Only letters, dot(.) and dash(-) allowed";
+        return false;
+    }
+
+    msg.textContent = "";
+    return true;
+}
+
+// Email
+function validateEmail() {
+    const email = document.getElementById("email").value.trim();
+    const msg = document.getElementById("emailError");
+
+    const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (email === "") {
+        msg.textContent = "Email cannot be empty!";
+        return false;
+    }
+
+    if (!pattern.test(email)) {
+        msg.textContent = "Invalid email format!";
+        return false;
+    }
+
+    msg.textContent = "";
+    return true;
+}
+
+// Gender
+function validateGender() {
+    const genders = document.getElementsByName("gender");
+    const msg = document.getElementById("genderError");
+
+    for (let g of genders) {
+        if (g.checked) {
+            msg.textContent = "";
+            return true;
+        }
+    }
+
+    msg.textContent = "Please select a gender!";
+    return false;
+}
+
+// DOB
+function validateDOB() {
+    const dob = document.getElementById("dob").value;
+    const msg = document.getElementById("dobError");
+
+    if (dob === "") {
+        msg.textContent = "Date of Birth required!";
+        return false;
+    }
+
+    const year = new Date(dob).getFullYear();
+    if (year < 1900 || year > 2016) {
+        msg.textContent = "Year must be between 1900 and 2016!";
+        return false;
+    }
+
+    msg.textContent = "";
+    return true;
+}
+
+// Blood
+function validateBlood() {
+    const blood = document.getElementById("blood").value;
+    const msg = document.getElementById("bloodError");
+
+    if (blood === "") {
+        msg.textContent = "Select blood group!";
+        return false;
+    }
+
+    msg.textContent = "";
+    return true;
+}
+
+// Degree
+function validateDegree() {
+    const degree = document.getElementById("degree").value;
+    const msg = document.getElementById("degreeError");
+
+    if (degree === "") {
+        msg.textContent = "Select degree!";
+        return false;
+    }
+
+    msg.textContent = "";
+    return true;
+}
+
+// Photo
+function validatePhoto() {
+    const photo = document.getElementById("photo").value;
+    const msg = document.getElementById("picError");
+
+    if (photo === "") {
+        msg.textContent = "Upload a photo!";
+        return false;
+    }
+
+    msg.textContent = "";
+    return true;
+}
+</script>
+</head>
+
+<body>
+<div class="container">
+    <h2>Registration Form</h2>
+
+    <form onsubmit="return validateAll()">
+
+        <label>Name</label>
+        <input type="text" id="name">
+        <span id="nameError" class="error"></span>
+
+        <label>Email</label>
+        <input type="text" id="email">
+        <span id="emailError" class="error"></span>
+
+        <label>Gender</label>
+        <div class="gender">
+            <input type="radio" name="gender"> Male
+            <input type="radio" name="gender"> Female
+        </div>
+        <span id="genderError" class="error"></span>
+
+        <label>Date of Birth</label>
+        <input type="date" id="dob">
+        <span id="dobError" class="error"></span>
+
+        <label>Blood Group</label>
+        <select id="blood">
+            <option value="">Select</option>
+            <option>A+</option>
+            <option>B+</option>
+            <option>O+</option>
+            <option>AB+</option>
+        </select>
+        <span id="bloodError" class="error"></span>
+
+        <label>Degree</label>
+        <select id="degree">
+            <option value="">Select</option>
+            <option>BSc</option>
+            <option>MSc</option>
+            <option>PhD</option>
+        </select>
+        <span id="degreeError" class="error"></span>
+
+        <label>Photo</label>
+        <input type="file" id="photo">
+        <span id="picError" class="error"></span>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>
