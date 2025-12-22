@@ -11,6 +11,17 @@ Mid Term Task Folder
 ├── lab_task03  
 └── lab_task04  
 
+# Final Term Task Folder
+
+## 📂 Folder Structure
+
+Final Term Task Folder  
+│  
+├── lab_task05  
+├──  
+├──   
+└──   
+
 ## 📝 Description
 
 This repository contains mid-term lab tasks covering the following topics:
@@ -18,7 +29,8 @@ This repository contains mid-term lab tasks covering the following topics:
 - **HTML**: Structure and layout of Form  
 - **CSS**: Styling, design
 - **JavaScript**: Basic scripting and DOM manipulation  
-- **Form Validation**: Form validation using JavaScript 
+- **Form Validation**: Form validation using JavaScript
+  
 
 ## 👩‍🎓 Student Information
 - Naznin Akter Roshmny
