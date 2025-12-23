@@ -1,0 +1,14 @@
+#sbt {
+       width: 100%;
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+} 
+
+#sbt:hover{
+                            background: darkgreen;
+
+}
