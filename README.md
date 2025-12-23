@@ -18,7 +18,7 @@ Mid Term Task Folder
 Final Term Task Folder  
 │  
 ├── lab_task05  
-├──  
+├── lab_task06
 ├──   
 └──   
 
